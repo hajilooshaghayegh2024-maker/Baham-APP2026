@@ -1,0 +1,59 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile containing role and background check status",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "fullName": { "type": "string" },
+        "role": { "type": "string", "enum": ["Seeker", "Companion"] },
+        "bio": { "type": "string" },
+        "languages": { "type": "array", "items": { "type": "string" } },
+        "onboarded": { "type": "boolean" },
+        "is_background_checked": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "role", "fullName"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "A service booking between a Seeker and a Companion",
+      "type": "object",
+      "properties": {
+        "seekerId": { "type": "string" },
+        "companionId": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" },
+        "timeSlot": { "type": "string" },
+        "serviceCategory": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "cancelled"] },
+        "createdAt": { "type": "object" }
+      }
+    },
+    "Message": {
+      "title": "Message",
+      "description": "A chat message",
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "createdAt": { "type": "object" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Individual user document"
+    },
+    "/bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Booking records"
+    },
+    "/chats/{chatId}/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Chat messages between participants"
+    }
+  }
+}

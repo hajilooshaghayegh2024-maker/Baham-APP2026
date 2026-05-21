@@ -1,0 +1,6 @@
+{
+  "name": "BaHam",
+  "description": "A micro-SaaS platform with a decoupled full-stack architecture using React, Vite, and Express.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
