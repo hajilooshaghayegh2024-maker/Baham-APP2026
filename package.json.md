@@ -1,12 +1,14 @@
 {
   "name": "baham-app",
-  "version": "1.0.0",
-  "description": "My project",
-  "main": "index.html",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "serve"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "dependencies": {
-    "serve": "^14.0.0"
+  "devDependencies": {
+    "vite": "^6.4.2"
   }
 }
